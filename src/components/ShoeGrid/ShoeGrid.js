@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import React from 'react'
+import styled from 'styled-components/macro'
 
-import SHOES from '../../data';
-import ShoeCard from '../ShoeCard';
+import SHOES from '../../data'
+import ShoeCard from '../ShoeCard'
 
 const ShoeGrid = () => {
   return (
@@ -11,9 +11,18 @@ const ShoeGrid = () => {
         <ShoeCard key={shoe.slug} {...shoe} />
       ))}
     </Wrapper>
-  );
-};
+  )
+}
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 32px;
 
-export default ShoeGrid;
+  & > * {
+    flex: 0 1 344px;
+  }
+`
+
+export default ShoeGrid
