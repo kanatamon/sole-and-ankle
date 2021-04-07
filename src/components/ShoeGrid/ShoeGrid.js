@@ -8,7 +8,9 @@ const ShoeGrid = () => {
   return (
     <Wrapper>
       {SHOES.map((shoe) => (
-        <ShoeCard key={shoe.slug} {...shoe} />
+        <ShoeWrapper key={shoe.slug}>
+          <ShoeCard {...shoe} />
+        </ShoeWrapper>
       ))}
     </Wrapper>
   )
@@ -17,12 +19,18 @@ const ShoeGrid = () => {
 const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 32px;
 
-  & > * {
-    flex: 0 1 344px;
-  }
+  /* With modern solution we can use gap, but there is a alternative solution
+  using position margin on the child and negative margin on this wrapper, which
+  resulting the same visual */
+  gap: 32px;
+  /* margin: -16px; */
+`
+const ShoeWrapper = styled.div`
+  min-width: 275px;
+  flex: 1;
+
+  /* margin: 16px; */
 `
 
 export default ShoeGrid
